@@ -19,7 +19,6 @@ int D; //Tillgänglig mängd mjölk
 
 vector<kopp> a;
 
-// Bruteforce
 // O(2^N*N)
 int solve_bruteforce(){
     int best = -1;
@@ -39,10 +38,9 @@ int solve_bruteforce(){
     return best;
 }
 
-// DP
 // O(N * D * L)
 int solve_dp_1(){
-    vector<vvi> dp(N+1, vvi(D+1, vi(L+1))); //kopp, mjölk kvar, drickmängd kvar
+    vector<vvi> dp(N+1, vvi(D+1, vi(L+1))); //kopp, mjölk kvar, drickmängd kvar ==> hur mycket koffein man kan få
     for(int i = N-1; i >= 0; i--){
         for(int j = 0; j <= D; j++){
             for(int k = 0; k <= L; k++){
@@ -56,12 +54,11 @@ int solve_dp_1(){
     return dp[0][D][L];
 }
 
-// DP
 // O(N * D * sum(koffein))
 int solve_dp_2(){
     int sum = 0;
     for(int i = 0; i < N; i++) sum += a[i].K;
-    vector<vvi> dp(N+1, vvi(D+1, vi(sum+1)));
+    vector<vvi> dp(N+1, vvi(D+1, vi(sum+1))); //kopp, mjölk kvar, ytterliggare koffein som behövs ==> hur mycket som behöver drickas
 
     for(int j = 0; j <= D; j++) for(int k = 0; k <= sum; k++) dp[N][j][k] = inf;
     for(int j = 0; j <= D; j++) dp[N][j][0] = 0;
@@ -78,6 +75,31 @@ int solve_dp_2(){
 
     int ans = sum;
     while(dp[0][D][ans] > L) ans--;
+    return ans;
+}
+
+// O(N * L * sum(koffein))
+// aldrig snabbare än solve_dp_2 om man kör D = min(D, L) (vilket inte påverkar lösningen).
+int solve_dp_3(){
+    int sum = 0;
+    for(int i = 0; i < N; i++) sum += a[i].K;
+    vector<vvi> dp(N+1, vvi(L+1, vi(sum+1))); //kopp, drickmängd kvar, ytterliggare koffein som behövs ==> hur mycket mjölk som behövs
+
+    for(int j = 0; j <= L; j++) for(int k = 0; k <= sum; k++) dp[N][j][k] = inf;
+    for(int j = 0; j <= L; j++) dp[N][j][0] = 0;
+    for(int i = N-1; i >= 0; i--){
+        for(int j = 0; j <= L; j++){
+            for(int k = 0; k <= sum; k++){
+                dp[i][j][k] = dp[i+1][j][k];
+                if(j - (a[i].V + a[i].M) >= 0){
+                    dp[i][j][k] = min(dp[i][j][k], dp[i+1][j - (a[i].V + a[i].M)][max(0, k-a[i].K)] + a[i].M);
+                }
+            }
+        }
+    }
+
+    int ans = sum;
+    while(dp[0][L][ans] > D) ans--;
     return ans;
 }
 
@@ -100,8 +122,8 @@ int main(){
     for(int i = 0; i < t; i++){
         gen_random(22, 100, 40, 22, 8, 50);
 
-        int ans1 = solve_dp_1();
-        int ans2 = solve_dp_2();
+        int ans1 = solve_dp_2();
+        int ans2 = solve_dp_3();
         cout << ans1 << " " << ans2 << endl;
         assert(ans1 == ans2);
         cout << "--- OK ---" << endl;
