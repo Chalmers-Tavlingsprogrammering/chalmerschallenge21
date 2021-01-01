@@ -1,9 +1,13 @@
-//#pragma GCC optimize("O3")
+#pragma GCC optimize("O3")
 #include <bits/stdc++.h>
 using namespace std;
 typedef vector<int> vi;
 typedef vector<vi> vvi;
 constexpr int inf = 0x3f3f3f3f;
+
+/*
+    Det här problemet är en tvådimensionell knapsack https://en.wikipedia.org/wiki/Knapsack_problem#Multi-dimensional_knapsack_problem.
+*/
 
 struct kopp{
     kopp(int V, int M, int K) : V(V), M(M), K(K) { }
@@ -20,6 +24,7 @@ int D; //Tillgänglig mängd mjölk
 vector<kopp> a;
 
 // O(2^N*N)
+// kan optimeras med meet-in-the-middle
 int solve_bruteforce(){
     int best = -1;
     for(int i = 0; i < (1<<N); i++){
@@ -104,14 +109,14 @@ int solve_dp_3(){
 }
 
 void gen_random(int max_n, int max_l, int max_d, int max_v, int max_m, int max_k){
-    N = max_n ? rand()%max_n : 0;
-    L = max_l ? rand()%max_l : 0;
-    D = max_d ? rand()%max_d : 0;
+    N = rand()%(max_n+1);
+    L = rand()%(max_l+1);
+    D = rand()%(max_d+1);
     a.clear();
     for(int i = 0; i < N; i++){
-        a.emplace_back(max_v ? rand()%max_v : 0,
-                       max_m ? rand()%max_m : 0,
-                       max_k ? rand()%max_k : 0);
+        a.emplace_back(rand()%(max_v+1),
+                       rand()%(max_m+1),
+                       rand()%(max_k+1));
     }
 }
 
