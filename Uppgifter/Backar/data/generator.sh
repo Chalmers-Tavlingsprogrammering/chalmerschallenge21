@@ -6,7 +6,7 @@ USE_SCORING=0
 # ulimit -s unlimited
 
 # Choose your solution
-use_solution gustav.cpp
+use_solution dijkstra.cpp
 
 # Compile generators
 compile gen_random.py
