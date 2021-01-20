@@ -21,8 +21,8 @@ bool dfs_find_way(vector<set<int>> &connections, set<int> &visited, int at, int 
 }
 
 void run() {
-	int max_n = 100000;
-	int max_m = 100000;
+	int max_n = 4000;
+	int max_m = 10000;
 
 	int n_spots = Int(2, max_n);
 	Space();
