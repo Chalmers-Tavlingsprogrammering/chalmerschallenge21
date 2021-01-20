@@ -1,0 +1,29 @@
+\problemname{CHACTL}
+Seasoned competitive programmers are quite familiar with \textsc{KACTL}, a very good algorithm repository
+designed for use in the ICPC. The problem setters of Chalmers Challenge 2021 count themselves to
+this group, but have in preparation for this contest noticed two serious flaws with it.
+
+First, it turns out the \textsc{K} in \textsc{KACTL} stands for \textsc{KTH}! This is clearly
+unacceptable and needs to be remedied. Second, the $26$-page limit prevents the repository from
+achieving true greatness. Hence, we introduce \textsc{CHACTL}: Chalmers Competition Template Library
+with no less than $2^26$ pages. This is plenty space for all distibuted quadratic SIMD, assault and
+battery of floating-point numbers and cryptic guides to crossword solving you could ever wish for!
+
+During development, Dragos came up to us and said that our users need a proper navigation system to
+handle the scale and intensity of \textsc{CHACTL}. He recommended buttons that traverse the pages a
+power of two at a time. We implemented this, so from page $i$ you can go to page $i + 2^t$ or $i -
+2^t$ in a single step for any $t$.
+
+Although there are no pages with negative numbers, or with arbitrarily large numbers, the navigation
+system supports jumping to such pages as it might reduce the number of traverals needed.
+
+We want to test this by looking up algorithms on pages $P_0, P_1, \ldots P_{N-1}$, in that order.
+\textsc{CHACTL}'s pages are numbered from $0$ to $2^26 - 1$. Starting from page $0$, what is the
+smallest number of traverals required to look up all the algorithms?
+
+\section*{Input}
+The first line contains one integer $N$, $1 \le N \le 10^5$. The following $N$ lines each contain
+one integer. Line $i$ contains $P_i$, $0 \le P_i \le 2^26$.
+
+\section*{Output}
+Output the smallest number of traversals required to look up the algorithms.
