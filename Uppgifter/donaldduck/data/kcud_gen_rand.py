@@ -11,13 +11,7 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-max_N = int(cmdlinearg("max_N", 1e6))
-max_M = int(cmdlinearg("max_M", 1e6))
+max_N = cmdlinearg("max_N", 1e6)
+max_M = cmdlinearg("max_M", 1e6)
 
-while True:
-    n = random.randint(0, max_N)
-    m = random.randint(0, max_M)
-    if n != m:
-        break
-
-print(n, m)
+print(max_N, max_M)
