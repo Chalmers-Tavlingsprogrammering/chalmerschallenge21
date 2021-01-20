@@ -48,7 +48,7 @@ while len(not_reached) > 0:
         break
 
 print(n, m)
-print(start, end)
+print(start + 1, end + 1)
 print(" ".join(str(random.randrange(-1e1, 1e1)) for _ in range(n)))
 
 connections = set(
