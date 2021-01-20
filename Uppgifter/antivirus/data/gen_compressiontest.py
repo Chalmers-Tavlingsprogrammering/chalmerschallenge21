@@ -12,15 +12,17 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-min_b = int(cmdlinearg('min_b', -1000000000))
-max_b = int(cmdlinearg('max_b',  1000000000))
-
 n = int(cmdlinearg('n'))
 print(n)
 
-a = [random.randint(2, n)]
-for i in range(1, n): a.append(random.randint(1, i))
+b = [0]*n
+a = [2]
+for i in range(1, (n-1)//2):
+    a.append(i)
+l = len(a)
+while(len(a) < n):
+    b[len(a)] = random.randint(1, 100)
+    a.append(l-random.randint(0,2))
+b[0] = -sum(b)
 print(' '.join(map(str, a)))
-
-b = [random.randint(min_b, max_b) for i in range(n)]
 print(' '.join(map(str, b)))

@@ -7,11 +7,11 @@ Hacke Hackspett har fått i uppdrag att ta bort allt virus. Det tänker han gör
 Varje dag kommer Hacke låta den dator som har mest antivirus skicka vidare det. Om mer än en dator har mest antivirus låter han datorn med mest antivirus och lägst nummer skicka vidare sitt.
 
 \section*{Indata}
-På första raden finns heltalet $N$, antalet datorer.
+På första raden finns heltalet $N$ ($2 \leq N \leq 200000$), antalet datorer.
 
-På andra raden finns $N$ heltal $a_i$, mängden virus eller antivirus i dator $i$ vid start.
+På andra raden finns $N$ heltal $a_i$, vilket innebär att Hacke har kopplat dator $i$ till dator $a_i$. $b_1 > 1$ och $1 \leq a_i < i$ för $i \neq 1$.
 
-På tredje raden finns $N$ heltal $b_i$, vilket innebär att Hacke har kopplat dator $i$ till dator $b_i$. $b_1 > 1$ och $1 \leq b_i < i$ för $i \neq 1$.
+På tredje raden finns $N$ heltal $b_i$, mängden virus eller antivirus i dator $i$ vid start.
 
 \section*{Utdata}
 Skriv ut hur många dagar det kommer ta tills allt virus är borta. Om viruset aldrig försvinner (eller antiviruset försvinner först), skriv ut \texttt{aldrig}.

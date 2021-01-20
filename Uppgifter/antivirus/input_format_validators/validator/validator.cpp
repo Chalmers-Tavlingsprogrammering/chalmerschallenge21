@@ -3,15 +3,9 @@
 typedef long long ll;
 
 void run() {
-	int max_n = 100000;
+	int max_n = 200000;
 
 	int n = Int(2, max_n);
-	Endl();
-
-	for(int i = 0; i < n; i++){
-		Int(-1e9, 1e9);
-		if(i != n-1) Space();
-	}
 	Endl();
 
 	for(int i = 1; i <= n; i++){
@@ -20,5 +14,12 @@ void run() {
 		if(i != n) Space();
 	}
 	Endl();
+
+	for(int i = 0; i < n; i++){
+		Int(-1e9, 1e9);
+		if(i != n-1) Space();
+	}
+	Endl();
+
 	Eof();
 }

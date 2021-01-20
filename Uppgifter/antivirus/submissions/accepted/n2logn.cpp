@@ -17,15 +17,13 @@ int main(){
     }
     vl b(n);
     for(int i = 0; i < n; i++) cin >> b[i];
-    vi c(n, 1);
-
     ll ans = 0;
+    ll sincejoin = 0;
     set<pair<ll, int>> pq;
     for(int i = 0; i < n; i++) pq.emplace(-b[i], i);
-    ll sincejoin = 0;
     while(1){
-        int from = (*pq.begin()).second;
-        ll best = b[from];
+        int bestind = (*pq.begin()).second;
+        ll best = b[bestind];
         if(-(*pq.rbegin()).first >= 0){
             cout << ans << endl;
             return 0;
@@ -34,39 +32,18 @@ int main(){
             cout << "never" << endl;
             return 0;
         }
-
-        int dest = a[from];
-        int dist = c[from];
-        int prevdest = from;
-        
-        while(prevdest != 0 && dest != 0 && b[dest] == 0){
-            prevdest = dest;
-            dist += c[dest];
-            dest = a[dest];
-        }
+        pq.erase(pq.begin());
+        pq.emplace(0, bestind);
+        pq.erase({-b[a[bestind]], a[bestind]});
         sincejoin++;
-        if(b[dest]) sincejoin = 0;
+        if(b[a[bestind]]) sincejoin = 0;
         if(sincejoin > 2*n+3){
             cout << "never" << endl;
             return 0;
         }
-
-        pq.erase(pq.begin());
-        pq.emplace(0, from);
-        pq.erase({-b[dest], dest});
-        b[dest] += b[from];
-        pq.emplace(-b[dest], dest);
-        b[from] = 0;
-
-        ans+=dist;
-
-        while(dist){
-            int nxt = a[from];
-            int nd = c[from];
-            a[from] = dest;
-            c[from] = dist;
-            from = nxt;
-            dist -= nd;
-        }
+        b[a[bestind]] += b[bestind];
+        pq.emplace(-b[a[bestind]], a[bestind]);
+        b[bestind] = 0;
+        ans++;
     }
 }
