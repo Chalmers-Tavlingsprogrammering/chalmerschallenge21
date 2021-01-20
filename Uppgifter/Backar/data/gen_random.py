@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+sys.setrecursionlimit(1000000)
 import random
 
 def cmdlinearg(name, default=None):
@@ -14,7 +15,7 @@ random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
 
 n = int(cmdlinearg('n'))
-m = random.randint(1, n * (n - 1) // 2)
+m = int(cmdlinearg('m'))
 
 connections = [set() for _ in range(n)]
 for _ in range(m):
