@@ -19,5 +19,11 @@ sample 02
 tc t1 gen_random n=4
 tc t2 gen_random n=6
 tc t3 gen_random n=10
+tc t4 gen_random n=20
+tc t5 gen_random n=80
+tc t6 gen_random n=100
+tc t7 gen_random n=200
+tc t8 gen_random n=500
+tc t9 gen_random n=1000
 #tc_manual ../manual-tests/1.in
 
