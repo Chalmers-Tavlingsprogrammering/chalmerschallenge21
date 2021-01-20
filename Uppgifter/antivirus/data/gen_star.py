@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+
 import sys
 import random
 
@@ -11,7 +12,13 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-max_N = cmdlinearg("max_N", 1e6)
-max_M = cmdlinearg("max_M", 1e6)
+n = int(cmdlinearg('n'))
+print(n)
 
-print(max_N, max_M)
+a = [random.randint(2, n)]
+for i in range(1, n): a.append(1)
+print(' '.join(map(str, a)))
+
+b = [random.randint(0, 10000000) for i in range(n)]
+b[0] = -1000000000
+print(' '.join(map(str, b)))

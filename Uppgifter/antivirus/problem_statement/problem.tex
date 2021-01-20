@@ -1,19 +1,19 @@
 \problemname{Antivirus}
 
-A computer network har infekterats av virus! På varje dator i nätverket finns ett visst antal virus eller antivirus. Det kan inte finnas både virus och antivirus på samma dator eftersom de då omedelbart tar ut varandra parvis. Om det exempelvis hade funnits 5 antivirus och 3 virus är på samma dator hade de tagit ut varandra så att det bara hade blivit 2 antivirus kvar.
+A computer network has been infected by evil viruses, so Hacke Hackspett \footnote{Swedish for Woody Woodpecker} has been tasked with removing them.
 
-Hacke Hackspett har fått i uppdrag att ta bort allt virus. Det tänker han göra genom att skicka runt antiviruset mellan datorerna. Hacke har ställt upp datorerna på en lång rad och numrerat dem från vänster till höger med 1 till N. Han kan säga till en dator att skicka allt sitt antivirus till en annan dator som den är direkt kopplad till. För att antiviruset aldrig ska åka åt fel håll har Hacke kopplat ihop datorerna med enkelriktade internetkablar, så att det finns exakt en internetkabel som går ut från varje dator. Hacke har dessutom sett till att varje dator är kopplad till någon dator längre åt vänster, förutom dator 1 som kan vara kopplad till viken dator som helst.
+Each computer in the network has some number of viruses or antiviruses. There can never be both viruses and antiviruses in the same computer at the same time because they would immediately delete each other in pairs.
 
-Varje dag kommer Hacke låta den dator som har mest antivirus skicka vidare det. Om mer än en dator har mest antivirus låter han datorn med mest antivirus och lägst nummer skicka vidare sitt.
+First, Hacke placed the $N$ computers in a row and numbered them from left to right with numbers $1$ to $N$. He then used $N$ one-way network cables to connect each computer to exactly one other computer.
 
-\section*{Indata}
-På första raden finns heltalet $N$ ($2 \leq N \leq 200000$), antalet datorer.
+Each day, starting with day 1, Hacke will let the computer with the most antiviruses send them all to the computer that it is connected to. If multiple computers are tied for most antiviruses, he chooses the one furthest to the left (the one with the smallest number). If a virus-infected computer receives antiviruses, the viruses and antiviruses will delete each other in pairs. For example, if there are $5$ viruses in a computer when it receives $3$ antiviruses, only $2$ viruses will remain.
 
-På andra raden finns $N$ heltal $a_i$, vilket innebär att Hacke har kopplat dator $i$ till dator $a_i$. $b_1 > 1$ och $1 \leq a_i < i$ för $i \neq 1$.
+\section*{Input}
+The first line contains the integer $N$ ($2 \leq N \leq 200\,000$), the number of computers.
 
-På tredje raden finns $N$ heltal $b_i$, mängden virus eller antivirus i dator $i$ vid start.
+The second line contains $N$ integers $a_1, \dots, a_N$. For each $i$, Hacke has connected computer number $i$ to computer $a_i$. $a_1 > 1$ and $1 \leq a_i < i$ for $i \neq 1$.
 
-\section*{Utdata}
-Skriv ut hur många dagar det kommer ta tills allt virus är borta. Om viruset aldrig försvinner (eller antiviruset försvinner först), skriv ut \texttt{aldrig}.
+The third line contains $N$ integers $b_1, \dots, b_N$ ($-10^9 \leq b_i \leq 10^9$). $b_i$ is the number of viruses or antiviruses in computer $i$ at the start. A positive $b_i$ means there are $b_i$ antiviruses in computer $i$, while a negative $b_i$ means there are $-b_i$ viruses in computer $i$.
 
-\section*{Exempelfall}
+\section*{Output}
+Output the the day on which the last virus is deleted. If some virus will never be deleted (or if all antiviruses are deleted first), output \texttt{never} instead.
