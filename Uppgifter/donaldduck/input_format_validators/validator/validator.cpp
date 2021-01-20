@@ -10,4 +10,6 @@ void run() {
     Endl();
 
     assert(N != M);
+
+    Eof();
 }
