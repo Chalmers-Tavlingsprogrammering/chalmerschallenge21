@@ -1,3 +1,4 @@
+#pragma GCC optimize ("O3")
 #include <set>
 #include <functional>
 #include <vector>
