@@ -1,0 +1,19 @@
+\problemname{Antivirus}
+
+A computer network har infekterats av virus! På varje dator i nätverket finns ett visst antal virus eller antivirus. Det kan inte finnas både virus och antivirus på samma dator eftersom de då omedelbart tar ut varandra parvis. Om det exempelvis hade funnits 5 antivirus och 3 virus är på samma dator hade de tagit ut varandra så att det bara hade blivit 2 antivirus kvar.
+
+Hacke Hackspett har fått i uppdrag att ta bort allt virus. Det tänker han göra genom att skicka runt antiviruset mellan datorerna. Hacke har ställt upp datorerna på en lång rad och numrerat dem från vänster till höger med 1 till N. Han kan säga till en dator att skicka allt sitt antivirus till en annan dator som den är direkt kopplad till. För att antiviruset aldrig ska åka åt fel håll har Hacke kopplat ihop datorerna med enkelriktade internetkablar, så att det finns exakt en internetkabel som går ut från varje dator. Hacke har dessutom sett till att varje dator är kopplad till någon dator längre åt vänster, förutom dator 1 som kan vara kopplad till viken dator som helst.
+
+Varje dag kommer Hacke låta den dator som har mest antivirus skicka vidare det. Om mer än en dator har mest antivirus låter han datorn med mest antivirus och lägst nummer skicka vidare sitt.
+
+\section*{Indata}
+På första raden finns heltalet $N$, antalet datorer.
+
+På andra raden finns $N$ heltal $a_i$, mängden virus eller antivirus i dator $i$ vid start.
+
+På tredje raden finns $N$ heltal $b_i$, vilket innebär att Hacke har kopplat dator $i$ till dator $b_i$. $b_1 > 1$ och $1 \leq b_i < i$ för $i \neq 1$.
+
+\section*{Utdata}
+Skriv ut hur många dagar det kommer ta tills allt virus är borta. Om viruset aldrig försvinner (eller antiviruset försvinner först), skriv ut \texttt{aldrig}.
+
+\section*{Exempelfall}
