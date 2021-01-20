@@ -1,3 +1,4 @@
+#!/bin/env python3
 n,m = [str(x) for x in input().split()]
 
 def reversing(x):
