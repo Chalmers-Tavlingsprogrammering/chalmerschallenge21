@@ -1,19 +1,22 @@
 N = int(input())
 
-# The number of 2-pow jumps required to jump n pages
+# f(0) = 0
+# f(2k) = f(k)
+# f(4k + 1) = 1 + f(k)
+# f(4k + 3) = 1 + f(k+1)
 def jumps_required(n):
     assert n >= 0
-
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
-    if n % 2 == 0:
-        return jumps_required(n // 2)
-    if n % 4 == 1:
-        return 1 + jumps_required(n // 4)
-    if n % 4 == 3:
-        return 1 + jumps_required(n // 4 + 1)
+    ans = 0
+    while n > 0:
+        if n % 2 == 0:
+            n //= 2
+        elif n % 4 == 1:
+            ans += 1
+            n = n // 4
+        else:
+            ans += 1
+            n = n // 4 + 1
+    return ans
 
 at = 0
 ans = 0

@@ -10,4 +10,5 @@ void run() {
         Int(0, max_page - 1);
         Endl();
     }
+    Eof();
 }
