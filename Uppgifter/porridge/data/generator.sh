@@ -36,5 +36,10 @@ tc t14 gen_random
 tc t15 gen_random
 tc t16 gen_random
 tc t17 gen_random
-
-#tc_manual ../manual-tests/1.in
+tc_manual ../manual-tests/m1.in
+tc_manual ../manual-tests/m2.in
+tc_manual ../manual-tests/m3.in
+tc_manual ../manual-tests/m4.in
+tc_manual ../manual-tests/m5.in
+tc_manual ../manual-tests/m6.in
+tc_manual ../manual-tests/m7.in
