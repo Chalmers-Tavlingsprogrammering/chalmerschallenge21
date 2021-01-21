@@ -1,7 +1,6 @@
 N = int(input())
 
 # The number of 2-pow jumps required to jump n pages
-# Probably correct?
 def jumps_required(n):
     assert n >= 0
 
