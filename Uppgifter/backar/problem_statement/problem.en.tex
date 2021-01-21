@@ -1,0 +1,37 @@
+\problemname{Antivirus}
+
+As most students are aware, Gothenburg somehow seems to have more roads going uphill than downhill,
+regardless of which way you're going. The knowledge of this made Lazy Smurf feel even more hopeless
+when his bike broke in the middle of the city, on his way to Smurfette. While the bike could ride
+fine downhill, the pedals were broken and he had to lead the bicycle uphill. Now Lazy Smurf needs
+your help finding the path around the city to Smurfette which makes him have to lead the bicycle
+uphill the least.
+
+As everyone knows, all of Gothenburg can be represented as a graph \footnote{https://en.wikipedia.
+org /wiki/Graph_(discrete_mathematics)}: a list of $N$ spots in the city, with $M$ direct paths
+between the spots (every path leads directly between two spots). Every spot in the city has a known
+height $h_i$, and if there is direct path between spot $i$ and $j$, the height difference $h_i-h_j$
+is the distance uphill the bicycle needs to be lead. To minimize the amount Lazy Smurf needs to lead
+the bicycle, we want to find the way from his location to Smurfette's which minimizes the total
+height difference for all steps between the locations, with steps going downhill counting as 0.
+
+\section*{Indata}
+The first line contains two numbers $N$ and $M$ with a space between them. As previously stated, $N$
+is the number of spots in the city, and $M$ is the number of direct paths between them.
+
+On the second row, there are two numbers separated by a space. The first number is the spot where
+Lazy Smurf is located, the second is the spot where Smurfette is located.
+
+On the fourth row, there are $N$ numbers separated by spaces. The numbers $h_i$ ($1 \le i \le N$)
+represent the height of the $i$th spot.
+
+On each of the following $M$ rows, there will be two numbers $i$ and $j$, meaning that there is a
+path between spot $i$ and spot $j$.
+
+
+\section*{Utdata}
+
+The program will output one number which is the minimum total uphill distance Lazy Smurf has to
+travel to get to Smurfette.
+
+\section*{Exempelfall}
