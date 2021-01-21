@@ -10,7 +10,7 @@ void run() {
 
 	for(int i = 1; i <= n; i++){
 		if(i == 1) Int(2, n);
-		else Int(1, n-1);
+		else Int(1, i-1);
 		if(i != n) Space();
 	}
 	Endl();

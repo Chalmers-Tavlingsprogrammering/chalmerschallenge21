@@ -15,15 +15,15 @@ power of two at a time. We implemented this, so from page $i$ you can go to page
 2^t$ in a single step for any $t$.
 
 Although there are no pages with negative numbers, or with arbitrarily large numbers, the navigation
-system supports jumping to such pages as it might reduce the number of traversals needed.
+system supports jumping to such pages as it might reduce the number of jumps needed.
 
 We want to test this by looking up algorithms on pages $P_0, P_1, \ldots P_{N-1}$, in that order.
 \textsc{CHACTL}'s pages are numbered from $0$ to $2^{26} - 1$. Starting from page $0$, what is the
-smallest number of traversals required to look up all the algorithms?
+smallest number of jumps required to look up all the algorithms?
 
 \section*{Input}
 The first line contains one integer $N$, $1 \le N \le 10^5$. The following $N$ lines each contain
 one integer. Line $i$ contains $P_i$, $0 \le P_i < 2^{26}$.
 
 \section*{Output}
-Output the smallest number of traversals required to look up the algorithms.
+Output the smallest number of jumps required to look up the algorithms.
