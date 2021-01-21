@@ -31,5 +31,10 @@ tc t11 kcud_gen_rand    N=31205    M=2004
 tc t12 kcud_gen_rand    N=433      M=353
 tc t13 kcud_gen_rand    N=999989   M=999998
 tc t14 kcud_gen_rand    N=2        M=4
-tc t15 kcud_gen_rand    N=4        M=5
+tc t15 kcud_gen_rand    N=4        M=2
+tc t16 kcud_gen_rand    N=5        M=4
+tc t17 kcud_gen_rand    N=4        M=5
+tc t18 kcud_gen_rand    N=13585    M=12483
+tc t19 kcud_gen_rand    N=13595    M=12483
+tc t20 kcud_gen_rand    N=12483    M=13585
 #tc_manual ../manual-tests/1.in
