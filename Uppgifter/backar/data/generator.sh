@@ -41,5 +41,6 @@ tc t22 gen_random n=4000  m=10000
 tc t23 gen_random n=10000 m=50000
 tc t24 gen_random n=20000 m=100000
 tc t25 gen_random n=40000 m=100000
+tc t26 gen_random n=80000 m=100000
 #tc_manual ../manual-tests/1.in
 
