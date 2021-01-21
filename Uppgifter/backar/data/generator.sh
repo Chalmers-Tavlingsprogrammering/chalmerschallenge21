@@ -3,7 +3,7 @@ USE_SCORING=0
 . ../../../testdata_tools/gen.sh
 
 # For unlimited stack:
-# ulimit -s unlimited
+ulimit -s unlimited
 
 # Choose your solution
 use_solution dijkstra.cpp
