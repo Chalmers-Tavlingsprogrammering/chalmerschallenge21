@@ -10,6 +10,7 @@ use_solution dijkstra.cpp
 
 # Compile generators
 compile gen_random.py
+compile gen_star.py
 
 # Generate answers to sample cases (optional)
 sample 01
@@ -40,7 +41,10 @@ tc t21 gen_random n=2000  m=5000
 tc t22 gen_random n=4000  m=10000
 tc t23 gen_random n=10000 m=50000
 tc t24 gen_random n=20000 m=100000
-tc t25 gen_random n=40000 m=100000
-tc t26 gen_random n=80000 m=100000
+tc s0 gen_star n=1000
+tc s1 gen_star n=5000
+tc s2 gen_star n=10000
+tc s3 gen_star n=20000
+
 #tc_manual ../manual-tests/1.in
 
