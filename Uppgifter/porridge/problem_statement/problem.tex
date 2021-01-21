@@ -1,14 +1,14 @@
 \problemname{Perfect Porridge Problem}
 As a true student Woody the Woodpecker eats a big bowl of perfect porridge each morning. Woody’s goal in life is to get every chalmerist to \textsc{love} porridge.
 
-In the faculty there are $N$ yet-to-be-enlightened students. Woody is unfortunately not necessarily able to serve perfect porridge to all of them. But he will do his best and try to serve as many of them as possible. He starts to microwave the water and oat mixture at $t=0$, one portion at a time with each requiring $2$ minutes of microwaving in the sole available microwave oven on campus. A man of great manners, Woody will serve the chosen subset of students all at once. The are but two complications:
+In the faculty there are $N$ yet-to-be-enlightened students. Woody is unfortunately not necessarily able to serve perfect porridge to all of them. But he will do his best and try to serve as many of them as possible. He starts to microwave the water and oat mixture at $t=0$, one portion at a time with each requiring $2$ minutes of microwaving in the sole available microwave oven on campus. A man of great manners, Woody will serve the chosen subset of students all at once.
 
-First, porridge will go cold after staying out in the open for $M$ minutes, requiring $1$ minute of re-heating. Second, the entitled brats care more about their exams than porridge and will leave the table when they grow impatient. Student $i$ has an associated impatience $I_i$, the time after which they will leave the table.
+There are two complications: first, porridge will go cold after staying out in the open for $M$ minutes, requiring $1$ minute of re-heating. Second, the entitled brats care more about their exams than porridge and will leave the table when they grow impatient. Student $i$ has an associated impatience $I_i$, the time after which they will leave the table.
 
-Porridge that is done at time $t$ will be cold at time $t+M$ but not at time $t+M-1$. A student with impatience $I_i$ will have left the table first at time $I_i+1$. Woody must not necessarily serve all seated students at the time of serving.
+Porridge that is done at time $t$ will be cold at time $t+M$ but not at time $t+M-1$. A student with impatience $I_i$ will still be at the table at time $I_i$, but not at time $I_i+1$. Woody must not necessarily serve all seated students at the time of serving.
 
 \section*{Input}
-The first line of input contains two integers $N$, $1 \leq N \leq 500000$, the number of students and $M$, $1 \leq M \leq 10^9$, the number of minutes it takes for warm porridge to get cold. The second line contains the $N$ integers $I_0, I_1 \ldots I_{N-1}$, where $I_i$, $1 \leq I_i \leq 10^9$, denotes the impatience for student $i$.
+The first line of input contains two integers $N$, $1 \leq N \leq 500\,000$, the number of students and $M$, $1 \leq M \leq 10^9$, the number of minutes it takes for warm porridge to get cold. The second line contains the $N$ integers $I_0, I_1 \ldots I_{N-1}$, where $I_i$, $1 \leq I_i \leq 10^9$, denotes the impatience for student $i$.
 
 
 \section*{Output}
