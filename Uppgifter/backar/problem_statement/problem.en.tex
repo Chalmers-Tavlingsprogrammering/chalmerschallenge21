@@ -18,16 +18,16 @@ height difference for all roads between their locations, counting downhill and f
 
 \section*{Input}
 The first line contains two numbers $N$ and $M$ with a space between them. $N$
-is the number of spots in the city, and $M$ is the number of roads.
+is the number of spots in the city, and $M$ is the number of roads. $1 \le N, M \le 10^5$
 
 On the second row, there are two numbers separated by a space. The first number is the spot where
 Lazy Smurf is located, the second is the spot where Smurfette is located.
 
 On the third row, there are $N$ numbers separated by spaces. The numbers $h_i$ ($1 \le i \le N$)
-represent the height of the $i$th spot.
+represent the height of the $i$th spot. It is always the case that $ -10^5 \le h_i \le 10^5 $.
 
 On each of the following $M$ rows, there will be two numbers $i$ and $j$, meaning that there is a
-road between spot $i$ and spot $j$.
+road between spot $i$ and spot $j$. $i \ne j $, and every road will be specified at most once.
 
 \section*{Output}
 
