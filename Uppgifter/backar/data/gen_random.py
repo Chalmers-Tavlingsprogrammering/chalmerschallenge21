@@ -50,7 +50,7 @@ while len(not_reached) > 0:
 
 print(n, m)
 print(start + 1, end + 1)
-print(" ".join(str(random.randrange(-1e1, 1e1)) for _ in range(n)))
+print(" ".join(str(random.randrange(-1e5, 1e5)) for _ in range(n)))
 
 connections = set(
     (min(a, b), max(a, b))

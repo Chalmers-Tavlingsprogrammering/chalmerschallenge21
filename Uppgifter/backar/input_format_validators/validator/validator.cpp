@@ -35,7 +35,7 @@ void run() {
 	Endl();
 
 	for(int i = 1; i <= n_spots; i++){
-		Int(-1e9, 1e9);
+		Int(-1e5, 1e5);
 		if(i != n_spots) Space();
 	}
 	Endl();
