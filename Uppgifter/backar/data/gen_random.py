@@ -25,27 +25,26 @@ for _ in range(m):
     connections[a].add(b)
     connections[b].add(a)
 
-def dfs(connections, visited, at):
-    res = set([at])
+def dfs(connections, visited, at, wanted):
+    if at == wanted:
+        return True
     if at in visited:
-        return res
+        return False
+
     visited.add(at)
 
     for b in connections[at]:
-        res.update(dfs(connections, visited, b))
+        if dfs(connections, visited, b, wanted):
+            return True
 
-    return res
+    return False
 
-not_reached = set(range(n))
-while len(not_reached) > 0:
-    start = list(not_reached)[0]
-    reachable = dfs(connections, set(), start)
-    not_reached = not_reached.difference(reachable) # will remove start
+while True:
+    start = random.randrange(0, n)
+    end = random.randrange(0, n)
+    if start == end: continue
 
-    if len(reachable) > 2:
-        start = random.choice(list(reachable))
-        reachable.remove(start)
-        end = random.choice(list(reachable))
+    if dfs(connections, set(), start, end):
         break
 
 print(n, m)
