@@ -17,16 +17,19 @@ sample 02
 sample 03
 
 # Note: tc automatically adds a deterministic, pseudo-random seed argument to your generator
-tc t01 kcud_gen_rand max_N=1245 max_M=222
-tc t02 kcud_gen_rand max_N=74018 max_M=2
-tc t03 kcud_gen_rand max_N=99999 max_M=99998
-tc t04 kcud_gen_rand max_N=42 max_M=27
-tc t05 kcud_gen_rand max_N=1 max_M=2
-tc t06 kcud_gen_rand max_N=666 max_M=3245
-tc t07 kcud_gen_rand max_N=10001 max_M=70001
-tc t08 kcud_gen_rand max_N=345 max_M=342
-tc t09 kcud_gen_rand max_N=2 max_M=67892
-tc t10 kcud_gen_rand max_N=25252 max_M=52525
-tc t11 kcud_gen_rand max_N=31205 max_M=2004
-tc t12 kcud_gen_rand max_N=433 max_M=353
+tc t01 kcud_gen_rand    N=1245     M=222
+tc t02 kcud_gen_rand    N=74018    M=2
+tc t03 kcud_gen_rand    N=99999    M=99998
+tc t04 kcud_gen_rand    N=42       M=27
+tc t05 kcud_gen_rand    N=1        M=2
+tc t06 kcud_gen_rand    N=666      M=3245
+tc t07 kcud_gen_rand    N=10001    M=70001
+tc t08 kcud_gen_rand    N=345      M=342
+tc t09 kcud_gen_rand    N=2        M=67892
+tc t10 kcud_gen_rand    N=25252    M=52525
+tc t11 kcud_gen_rand    N=31205    M=2004
+tc t12 kcud_gen_rand    N=433      M=353
+tc t13 kcud_gen_rand    N=999989   M=999998
+tc t14 kcud_gen_rand    N=2        M=4
+tc t15 kcud_gen_rand    N=4        M=5
 #tc_manual ../manual-tests/1.in
