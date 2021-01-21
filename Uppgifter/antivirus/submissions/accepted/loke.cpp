@@ -15,27 +15,27 @@ int main() {
 
     int N; cin >> N;
     vi next(N);
-    vector<unordered_set<int>> parents(N);
     vi weight(N, 1);
     vi antivirus(N);
-    vi generation(N);
-    // Tuples (pop, id, generation)
-    priority_queue<tuple<ll,int,int>> biggest_antivirus;
-    priority_queue<tuple<ll,int,int>> biggest_virus;
+    // (antivirus, id)
+    priority_queue<pair<ll,int>> biggest_antivirus;
+    priority_queue<pair<ll,int>> biggest_virus;
+    ll day = 0;
 
     rep(i, 0, N) {
         cin >> next[i]; next[i]--;
-        parents[next[i]].insert(i);
     }
     rep(i, 0, N) {
         cin >> antivirus[i];
-        biggest_antivirus.push(make_tuple(antivirus[i], -i, 0));
-        biggest_virus.push(make_tuple(-antivirus[i], -i, 0));
+        if (antivirus[i] > 0) {
+            biggest_antivirus.push(make_pair(antivirus[i], -i));
+        } else if (antivirus[i] < 0) {
+            biggest_virus.push(make_pair(-antivirus[i], -i));
+        }
     }
-    ll day = 0;
     // While there exist viruses
-    while (!biggest_virus.empty() && get<0>(biggest_virus.top()) > 0) {
-        if (-get<2>(biggest_virus.top()) != generation[-get<1>(biggest_virus.top())]) {
+    while (!biggest_virus.empty() && biggest_virus.top().first > 0) {
+        if (-biggest_virus.top().first != antivirus[-biggest_virus.top().second]) {
             biggest_virus.pop();
             continue;
         }
@@ -43,11 +43,13 @@ int main() {
             cout << "never\n";
             return 0;
         }
-        auto to_push = biggest_antivirus.top(); biggest_antivirus.pop();
-        ll pop, id, gen; tie(pop, id, gen) = to_push;
-        id = -id; // stored negated
-        gen = -gen; // stored negated
-        if (gen != generation[id]) continue;
+
+        ll pop = biggest_antivirus.top().first;
+        int id = -biggest_antivirus.top().second; // stored negated
+        biggest_antivirus.pop();
+        if (antivirus[id] != pop) {
+            continue;
+        }
 
         int child = next[id];
 
@@ -56,40 +58,28 @@ int main() {
             cout << "never\n";
             return 0;
         }
-        if (child == 0 && next[child] == id && antivirus[child] == 0) {
+        if (antivirus[child] == 0 && child == 0 && next[child] == id) {
             cout << "never\n";
             return 0;
         }
 
-        // This solution is actually not correct, but this hack makes it pass all tests
-        if (id != 0 && sz(parents[id]) < 200) {
-            // Make parents bypass us (we were emptied) and go straight to child through a (now) heavier edge
-            // Removing node 0 from the graph is not allowed due to tie-breaking
-            if (id != next[0]) {
-                parents[child].erase(id);
-            }
-            trav(parent, parents[id]) {
-                if (parent == 0) continue; // Damn this is subtle
-                next[parent] = child;
-                weight[parent] += weight[id];
-                parents[child].insert(parent);
-                //cout << "created bypass " << parent << " -> " << child << endl;
-            }
-            parents[id].clear();
+        // Contract edge between child and next[child] if that's valid
+        if (antivirus[child] == 0 && child != 0 && child != next[0]) {
+            next[id] = next[child];
+            weight[id] += weight[child];
+            child = next[id]; // requires this new value now
         }
 
         //cout << "moved " << pop << " from node " << id << " to node " << child << endl;
         day += weight[id];
         antivirus[child] += antivirus[id];
         antivirus[id] = 0;
-        generation[child]++;
-        generation[id]++;
 
-        // id is not placed in the queue again as it will forever have 0 virus/antivirus
+        // id is not placed in the queue as it has value 0
         if (antivirus[child] > 0) {
-            biggest_antivirus.push(make_tuple(antivirus[child], -child, -generation[child]));
+            biggest_antivirus.push(make_pair(antivirus[child], -child));
         } else if (antivirus[child] < 0) {
-            biggest_virus.push(make_tuple(-antivirus[child], -child, -generation[child]));
+            biggest_virus.push(make_pair(-antivirus[child], -child));
         }
     }
     cout << day << endl;
