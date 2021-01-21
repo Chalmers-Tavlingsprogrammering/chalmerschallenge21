@@ -23,6 +23,11 @@ tc t02 gen_random max_N=1000 max_M=1000 max_I=1000
 tc t03 gen_random max_N=10000 max_M=10000 max_I=10000
 tc t04 gen_random max_N=100000 max_M=100000 max_I=100000
 
+tc t05 gen_random
+tc t06 gen_random
+tc t07 gen_random
+tc t08 gen_random
+tc t09 gen_random
 tc t10 gen_random
 tc t11 gen_random
 tc t12 gen_random

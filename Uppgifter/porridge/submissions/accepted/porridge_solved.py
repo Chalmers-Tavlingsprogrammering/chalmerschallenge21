@@ -1,3 +1,4 @@
+#!/bin/env python3
 N, M = [int(q) for q in input().split()]
 impatience = [int(q) for q in input().split()]
 impatience.sort()

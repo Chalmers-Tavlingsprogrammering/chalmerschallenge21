@@ -11,7 +11,7 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-max_N = int(cmdlinearg("max_N", 1e5))
+max_N = int(cmdlinearg("max_N", 500000))
 max_M = int(cmdlinearg("max_M", 1e9))
 max_I = int(cmdlinearg("max_I", 1e9))
 prob_same = int(cmdlinearg("prob_same", 0))
