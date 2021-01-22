@@ -17,7 +17,7 @@ int main() {
     vi next(N);
     vi weight(N, 1);
     vi antivirus(N);
-    // (antivirus, id)
+    // (antivirus amount, id)
     priority_queue<pair<ll,int>> biggest_antivirus;
     priority_queue<pair<ll,int>> biggest_virus;
     ll day = 0;
@@ -37,7 +37,7 @@ int main() {
     while (!biggest_virus.empty() && biggest_virus.top().first > 0) {
         if (-biggest_virus.top().first != antivirus[-biggest_virus.top().second]) {
             biggest_virus.pop();
-            continue;
+            continue; // Repeat if we got invalidated virus pile
         }
         if (biggest_antivirus.empty()) {
             cout << "never\n";
@@ -48,17 +48,13 @@ int main() {
         int id = -biggest_antivirus.top().second; // stored negated
         biggest_antivirus.pop();
         if (antivirus[id] != pop) {
-            continue;
+            continue; // Repeat if we got invalidated antivirus pile
         }
 
         int child = next[id];
 
         // Bail if we are pushing a non-positive or pushing around in a circle
-        if (pop < 1) {
-            cout << "never\n";
-            return 0;
-        }
-        if (antivirus[child] == 0 && child == 0 && next[child] == id) {
+        if (pop < 1 || (antivirus[child] == 0 && child == 0 && next[child] == id)) {
             cout << "never\n";
             return 0;
         }
@@ -75,7 +71,7 @@ int main() {
         antivirus[child] += antivirus[id];
         antivirus[id] = 0;
 
-        // id is not placed in the queue as it has value 0
+        // id is not placed in a queue as it has value 0
         if (antivirus[child] > 0) {
             biggest_antivirus.push(make_pair(antivirus[child], -child));
         } else if (antivirus[child] < 0) {
